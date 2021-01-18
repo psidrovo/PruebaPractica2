@@ -25,7 +25,7 @@ public class HiloMovimientoClientes implements Runnable {
     private List<JLabel> lblCajero;
     private List<Cliente> filaBanco;
     private List<Cliente> listaClientes;
-    private int tiemppo;
+    private int tiempo;
 
     public void setFilaBanco(List<Cliente> filaBanco) {
         this.filaBanco = filaBanco;
@@ -41,7 +41,7 @@ public class HiloMovimientoClientes implements Runnable {
         this.tipoMovimiento = tipoMovimiento;
         this.lblClientes = elementosClientes;
         this.lblCajero = lblCajero;
-        this.tiemppo = tiempo;
+        this.tiempo = tiempo;
         this.filaBanco = filaBanco;
     }
 
@@ -70,7 +70,7 @@ public class HiloMovimientoClientes implements Runnable {
         try {
             int espacio = lblCajero.get(idCajero).getX();
             espacio -= lblClientes.get(idCliente).getX();
-            int tiempoPausa = tiemppo / 10;
+            int tiempoPausa = tiempo / 10;
             int salto = espacio / 10;
             espacio += salto;
             for (int i = 0; i < espacio; i += salto) {
@@ -86,7 +86,7 @@ public class HiloMovimientoClientes implements Runnable {
 
     private void movimientoLateralSalida() {
         try {
-            Thread.sleep(tiemppo);
+            Thread.sleep(tiempo);
             lblCajero.get(idCajero).setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new Color(51, 255, 0)));         
             lblClientes.get(idCliente).setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new Color(51, 255, 0)));
             int espacio = 500;
